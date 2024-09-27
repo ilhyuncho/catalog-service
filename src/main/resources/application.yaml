@@ -9,3 +9,7 @@ server:
 
 polar:
   geeting: Welcome the the local book catalog!
+
+  testdata2:
+    enabled: true
+
