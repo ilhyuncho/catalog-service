@@ -36,6 +36,11 @@ dependencies {
 
 }
 
+// ./gradlew bootrun 실행시
+bootRun {
+    systemProperty 'spring.profiles.active', 'testdata'
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
