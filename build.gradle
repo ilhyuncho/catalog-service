@@ -7,6 +7,11 @@ plugins {
 group = 'com.cihexample'
 version = '0.0.1-SNAPSHOT'
 
+configurations {
+    compileOnly{
+        extendsFrom annotationProcessor
+    }
+}
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
@@ -26,6 +31,8 @@ dependencies {
 
     // for WebTestClient
     testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 }
 
