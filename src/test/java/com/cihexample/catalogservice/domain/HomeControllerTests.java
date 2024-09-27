@@ -25,7 +25,7 @@ public class HomeControllerTests {
     public void hello() {
 
         String result=testRestTemplate.getForObject("/",String.class);
-        assertThat(result).isEqualTo("카탈로그에 오신 것을 환영함!!!");
+        assertThat(result).isEqualTo("Welcome the the local book catalog!");
     }
 
 }
