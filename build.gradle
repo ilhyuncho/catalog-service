@@ -43,6 +43,9 @@ dependencies {
     // 스프링 리트라이 의존성 추가 ( 설정 서버 연결시- 연결 실패시 재시도 패턴을 활용해 연결을 재시도 하도록 )
     implementation 'org.springframework.retry:spring-retry'
 
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+
 }
 
 dependencyManagement {

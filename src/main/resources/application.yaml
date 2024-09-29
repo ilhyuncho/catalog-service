@@ -26,6 +26,12 @@ spring:
         max-interval: 2000 # 재시도 지연 최대 시간
         multiplier: 1.1 # 지연 시간 계산 승수
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
 polar:
   greeting: Welcome the the local book catalog!
 
