@@ -7,8 +7,20 @@ server:
       max: 50
       min-spare: 5
 
+
+spring:
+  application:
+    name: catalog-service
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+
+
 polar:
-  geeting: Welcome the the local book catalog!
+  greeting: Welcome the the local book catalog!
 
   testdata2:
     enabled: true

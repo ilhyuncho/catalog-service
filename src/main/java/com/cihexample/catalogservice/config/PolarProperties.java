@@ -9,8 +9,8 @@ public class PolarProperties {
     public String getGreeting(){
         return this.greeting;
     }
-    public void setGeeting(String geeting){
-        this.greeting = geeting;
+    public void setGreeting(String greeting){
+        this.greeting = greeting;
     }
 
 }
