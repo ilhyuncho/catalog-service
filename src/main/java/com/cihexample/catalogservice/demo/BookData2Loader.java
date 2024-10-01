@@ -19,6 +19,8 @@ public class BookData2Loader {
 
     @EventListener(ApplicationReadyEvent.class) // 애플리케이션 시작 단계가 완료되면 발생한다.
     public void loadBookTestData(){
+        // BookData2Loader, BookDataLoader 중 BookData2Loader 이 먼저 실행 됨
+
 //        var book1 = new Book("1234567893", "Northedn dfsd2", "lydf sdf2", 9.90);
 //        var book2 = new Book("1234567894", "woman life2", "il fdfee2", 12.90);
 

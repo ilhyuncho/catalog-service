@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Profile("testdata")    // 이 클래스는 testdata 프로파일이 활성화될 때만 로드 된다.
 public class BookDataLoader {
@@ -22,10 +24,13 @@ public class BookDataLoader {
 //        var book1 = new Book("1234567891", "Northedn dfsd", "lydf sdf", 9.90);
 //        var book2 = new Book("1234567892", "woman life", "il fdfee", 12.90);
 
+        bookRepository.deleteAll();
+
         var book1 = Book.of("1234567891", "Northedn dfsd", "lydf sdf", 9.90);
         var book2 = Book.of("1234567892", "woman life", "il fdfee", 12.90);
 
-        bookRepository.save(book1);
-        bookRepository.save(book2);
+        bookRepository.saveAll(List.of(book1, book2));
+//        bookRepository.save(book1);
+//        bookRepository.save(book2);
     }
 }
