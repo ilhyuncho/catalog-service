@@ -2,8 +2,12 @@ package com.cihexample.catalogservice.domain;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
+
+import java.time.Instant;
 
 public record Book (
 
@@ -18,12 +22,18 @@ public record Book (
     String title,
     String author,
     Double price,
+
+    @CreatedDate
+    Instant createdDate,
+    @LastModifiedDate
+    Instant lastModifiedDate,
+
     @Version    // 낙관적 잠금을 위해 사용 됨
     int version
 ){
     public static Book of(
             String isbn, String title, String author, Double price
     ){
-        return new Book(null, isbn, title, author, price, 0);
+        return new Book(null, isbn, title, author, price, null,null,0);
     }
 }
