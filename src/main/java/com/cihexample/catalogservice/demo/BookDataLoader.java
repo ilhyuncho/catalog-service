@@ -19,8 +19,11 @@ public class BookDataLoader {
 
     @EventListener(ApplicationReadyEvent.class) // 애플리케이션 시작 단계가 완료되면 발생한다.
     public void loadBookTestData(){
-        var book1 = new Book("1234567891", "Northedn dfsd", "lydf sdf", 9.90);
-        var book2 = new Book("1234567892", "woman life", "il fdfee", 12.90);
+//        var book1 = new Book("1234567891", "Northedn dfsd", "lydf sdf", 9.90);
+//        var book2 = new Book("1234567892", "woman life", "il fdfee", 12.90);
+
+        var book1 = Book.of("1234567891", "Northedn dfsd", "lydf sdf", 9.90);
+        var book2 = Book.of("1234567892", "woman life", "il fdfee", 12.90);
 
         bookRepository.save(book1);
         bookRepository.save(book2);

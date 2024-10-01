@@ -45,6 +45,10 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+    // data jdbc, postgre SQL 드라이버 (24-09-30)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    runtimeOnly 'org.postgresql:postgresql'
+
 
 }
 
