@@ -11,23 +11,23 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HomeControllerTests {
-    @Autowired
-    TestRestTemplate testRestTemplate;
-
-    @LocalServerPort
-    int port;
-
-
-    @Test
-    @Disabled
-    public void hello() {
-
-//        String result=testRestTemplate.getForObject("/",String.class);
-//        assertThat(result).isEqualTo("Welcom th the catalog from the config server2");
-    }
-
-}
+//
+//@ExtendWith(SpringExtension.class)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//public class HomeControllerTests {
+//    @Autowired
+//    TestRestTemplate testRestTemplate;
+//
+//    @LocalServerPort
+//    int port;
+//
+//
+//    @Test
+//    @Disabled
+//    public void hello() {
+//
+////        String result=testRestTemplate.getForObject("/",String.class);
+////        assertThat(result).isEqualTo("Welcom th the catalog from the config server2");
+//    }
+//
+//}
