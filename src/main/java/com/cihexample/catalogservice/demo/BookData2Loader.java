@@ -24,8 +24,8 @@ public class BookData2Loader {
 //        var book1 = new Book("1234567893", "Northedn dfsd2", "lydf sdf2", 9.90);
 //        var book2 = new Book("1234567894", "woman life2", "il fdfee2", 12.90);
 
-        var book1 = Book.of("1234567893", "Northedn dfsd2", "lydf sdf2", 9.90);
-        var book2 = Book.of("1234567894", "woman life2", "il fdfee2", 12.90);
+        var book1 = Book.of("1234567893", "Northedn dfsd2", "lydf sdf2", 9.90,"pub1");
+        var book2 = Book.of("1234567894", "woman life2", "il fdfee2", 12.90, "pub2");
 
         bookRepository.save(book1);
         bookRepository.save(book2);
