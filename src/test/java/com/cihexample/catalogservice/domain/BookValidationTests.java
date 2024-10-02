@@ -24,7 +24,7 @@ public class BookValidationTests {
 
     @Test
     void validSuccesd(){
-        var book = Book.of("1234567890", "title","AUthor", 9.90);
+        var book = Book.of("1234567890", "title","AUthor", 9.90, "gfgfg");
         Set<ConstraintViolation<Book>> validate = validator.validate(book);
 
         assertThat(validate).isEmpty();
@@ -32,7 +32,7 @@ public class BookValidationTests {
 
     @Test
     void when(){
-        var book = Book.of("12345678df90", "title","AUthor", 9.90);
+        var book = Book.of("12345678df90", "title","AUthor", 9.90, "gfdfg");
         Set<ConstraintViolation<Book>> validate = validator.validate(book);
 
         assertThat(validate).hasSize(1);
