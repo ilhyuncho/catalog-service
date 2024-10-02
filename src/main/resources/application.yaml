@@ -47,6 +47,6 @@ management:
 polar:
   greeting: Welcome the the local book catalog!
 
-  testdata2:
-    enabled: true
+#  testdata2:
+#    enabled: true
 

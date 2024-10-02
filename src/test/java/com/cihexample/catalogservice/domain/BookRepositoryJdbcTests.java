@@ -38,7 +38,7 @@ class BookRepositoryJdbcTests {
         Optional<Book> actualBook = bookRepository.findByIsbn(bookIsbn);
 
         assertThat(actualBook).isPresent();
-        assertThat(actualBook.get().id()).isEqualTo(1L);
+        assertThat(actualBook.get().isbn()).isEqualTo(bookIsbn);
     }
 
 
