@@ -53,6 +53,10 @@ dependencies {
     // PostgreSQL 데이터베이스에 대한 컨테이너 관리 기능을 제공 (24-10-01)
     testImplementation 'org.testcontainers:postgresql'
 
+    // 데이터 버전 관리 - 플라이 웨이 (24-10-02)
+    //implementation 'org.flywaydb:flyway-core'   // springboot3 이후 버전이라 오류 가 발생
+    implementation("org.flywaydb:flyway-core:9.22.3")
+
 }
 
 dependencyManagement {
