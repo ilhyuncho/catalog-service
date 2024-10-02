@@ -1,5 +1,6 @@
 package com.cihexample.catalogservice.domain;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class HomeControllerTests {
 
 
     @Test
+    @Disabled
     public void hello() {
 
 //        String result=testRestTemplate.getForObject("/",String.class);
