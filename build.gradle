@@ -71,6 +71,12 @@ bootRun {
     systemProperty 'spring.profiles.active', 'testdata'
 }
 
+// 빌드팩을 사용해 OCI 이미지를 빌드하기 위한 스프링 부트 플러그인 작업
+bootBuildImage{
+    imageName = "${project.name}"
+    environment = ["BP_JVM_VERSION" : "17.*"]
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
