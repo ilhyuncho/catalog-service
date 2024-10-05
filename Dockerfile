@@ -6,6 +6,8 @@ COPY ${JAR_FILE} catalog-service.jar
 RUN java -Djarmode=layertools -jar catalog-service.jar extract
 
 FROM eclipse-temurin:17
+RUN useradd spring
+USER spring
 WORKDIR workspace
  # 첫번째 단계에서 추출한 jar 계층을 두 번째 단계로 복사
 COPY --from=builder workspace/dependencies/ ./
