@@ -1,6 +1,11 @@
 name: Commit Stage
 on: push
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ilhyuncho/catalog-service
+  VERSION: latest
+
 jobs:
   build:
     name: Build and Test
@@ -33,3 +38,28 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
+
+  package:
+    name: Package and Publish
+    if: ${{ github.ref == 'refs/heads/master' }}  # 잡을 master 브랜치에 대해서만 실행
+    needs: [ build ] # 'build' 잡이 성공저으로 수행된 경우에만 이 잡을 실행
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read  # 현재 깃 저장소를 체크아웃하기 위한 권한
+      packages : write # 깃허브 컨테이너 저장소로 이미지를 업로드하기 위한 권한
+      security-events: write  # 깃허브로 보안 이벤트를 제출하기 위한 권한
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3 # 현재 깃 저장소(catalog-service)를 체크아웃한다.
+      - name: Set up JDK
+        uses: action/setup-java@v3  # 자바 런타임을 설치하고 설정한다
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+      - name: Build container image
+        run : | 
+            chmod +x gradlew
+            ./gradlew bootBuildImage --imageName ${{ env.REGISTRY }}/{{ env.IMAGE_NAME }}:{{ env.VERSION}}
+        
+      
