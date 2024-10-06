@@ -82,7 +82,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }} # 저장소와 인증하기 위해 필요한 토큰. 깃허브 액션이 제공 함
       - name: Publish container image # 릴리스 후보를 저장소로 푸시
-        run: docker push ${{ env.REGISTRY }}/${{ env.IAMGE_NAME }}:${{ env.VERSION }}
+        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
 
 
