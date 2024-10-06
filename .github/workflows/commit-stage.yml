@@ -41,7 +41,7 @@ jobs:
 
   package:
     name: Package and Publish
-    if: ${{ github.ref == 'refs/heads/master' }}  # 잡을 master 브랜치에 대해서만 실행
+    if: ${{ github.ref == 'refs/heads/main' }}  # 잡을 master 브랜치에 대해서만 실행
     needs: [ build ] # 'build' 잡이 성공저으로 수행된 경우에만 이 잡을 실행
     runs-on: ubuntu-22.04
     permissions:
