@@ -62,5 +62,29 @@ jobs:
             chmod +x gradlew
             ./gradlew bootBuildImage \
               --imageName ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-        
+      - name: OCI image vulnerability scanning
+        uses: anchore/scan-action@v3  # 취약성 검사를 위해 그라이프를 사용해 릴리스 후보 이미지를 스캔한다.
+        id: scan
+        with: # 스캔할 이미지는 릴리스 후보다.
+          image:  ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          fail-build: false
+          severity-cutoff: true
+          acs-report-enable: true
+      - name: Upload vulnerability report
+        uses: github/codeql-action/upload-sarif@v3  # 깃허브로 보안 취약성 리포트를 업로드
+        if: success() || failure()
+        with:
+          sarif_files: ${{ steps.scan.outputs.sarif }}
+      - name: Log into container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }} # 저장소와 인증하기 위해 필요한 토큰. 깃허브 액션이 제공 함
+      - name: Publish container image # 릴리스 후보를 저장소로 푸시
+        run: docker push ${{ env.REGISTRY }}/${{ env.IAMGE_NAME }}:${{ env.VERSION }}
+
+
+
+
       
