@@ -50,7 +50,7 @@ jobs:
       security-events: write  # 깃허브로 보안 이벤트를 제출하기 위한 권한
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4 # 현재 깃 저장소(catalog-service)를 체크아웃한다.
+        uses: actions/checkout@v4 # 현재 깃 저장소(catalog-service) 를 체크아웃한다.
       - name: Set up JDK
         uses: actions/setup-java@v4  # 자바 런타임을 설치하고 설정한다
         with:
@@ -60,6 +60,7 @@ jobs:
       - name: Build container image
         run : | 
             chmod +x gradlew
-            ./gradlew bootBuildImage --imageName ${{ env.REGISTRY }}/{{ env.IMAGE_NAME }}:{{ env.VERSION}}
+            ./gradlew bootBuildImage --imageName
+                ${{ env.REGISTRY }}/{{ env.IMAGE_NAME }}:{{ env.VERSION}}
         
       
