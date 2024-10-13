@@ -25,6 +25,8 @@ kubectl apply -f k8s/deployment.yml
 
 #어떤 객첵가 만들어졌는지 확인
 kubectl get all -l app=catalog-service
+#생성된 파드 객체 확인
+kubectl get pods -l app=catalog-service
 
 #배포 로그를 확인
 kubectl logs deployment/catalog-service
@@ -43,3 +45,6 @@ kubectl get svc -l app=catalog-service
 
 #서비스 객체를 로컬 컴퓨터에 노출 ( 쿠버네티스 포트 전달 기능 - 일시적인 처림 )
 kubectl port-forward service/catalog-service 9001:80
+
+#
+kubectl delete -f k8s
