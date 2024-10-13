@@ -17,6 +17,10 @@ spec:
         - name: catalog-service
           image: catalog-service
           imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:  # 쿠버네티스가 파드에 SIGTERM신호를 보내기 전에 5초를 기다리게 한다
+              exec:
+                command: [ "sh","-c","sleep 5" ]
           ports:
             - containerPort: 9001
           env:

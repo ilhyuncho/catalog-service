@@ -35,7 +35,8 @@ spring:
 #  sql:   # 플라이웨이 이용에 따라 삭제 처리
 #    init:
 #      mode: always  #스프링 데이터가 schema.sql파일을 로드
-
+  lifecycle:
+    timeout-per-shutdown-phase: 15s   #15초의 종료 기간을 둔다
 management:
   endpoints:
     web:
